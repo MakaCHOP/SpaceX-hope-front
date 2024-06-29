@@ -1,44 +1,23 @@
-import { Section, Cell, Image, List } from '@telegram-apps/telegram-ui';
-
-import { Link } from '@/components/Link/Link.jsx';
-
-import tonSvg from './ton.svg';
-
 import './IndexPage.css';
+import Adsgram from "@/adsgram-sdk/Adsgram.jsx";
+import {Placeholder, Text} from "@telegram-apps/telegram-ui";
 
-/**
- * @returns {JSX.Element}
- */
+
 export function IndexPage() {
-  return (
-    <List>
-      <Section
-        header="Features"
-        footer="You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects"
-      >
-        <Link to="/ton-connect">
-          <Cell
-            before={<Image src={tonSvg} style={{ backgroundColor: '#007AFF' }}/>}
-            subtitle="Connect your TON wallet"
-          >
-            TON Connect
-          </Cell>
-        </Link>
-      </Section>
-      <Section
-        header="Application Launch Data"
-        footer="These pages help developer to learn more about current launch information"
-      >
-        <Link to="/init-data">
-          <Cell subtitle="User data, chat information, technical data">Init Data</Cell>
-        </Link>
-        <Link to="/launch-params">
-          <Cell subtitle="Platform identifier, Mini Apps version, etc.">Launch Parameters</Cell>
-        </Link>
-        <Link to="/theme-params">
-          <Cell subtitle="Telegram application palette information">Theme Parameters</Cell>
-        </Link>
-      </Section>
-    </List>
-  );
+    return (
+        <div>
+            <Placeholder
+                className='absolute top-0 left-0 w-full h-full box-border'
+                header='Adsgram Index'
+                description={
+                    <>
+                        <Text>
+                            To display Ads in the Main Page
+                        </Text>
+                        <Adsgram debug={true} blockId={"257"} className="pt-3" style={{margin:"16px auto 0"}}/>
+                    </>
+                }
+            />
+        </div>
+    );
 }
